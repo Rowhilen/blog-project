@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <strong>글 수정하기</strong>
+</head>
+<body>
+    <br>
+    <br>
+    <form action="{% url 'update' blog.id %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group row">
+            <label for="inputTitle" class="col-sm-2 col-form-label"><strong>제목</strong></label>
+            <div class="col-sm-10">
+              <input type="text" name="title" class="form-control" id="title" value="{{blog.title}}"/>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputAuthor" class="col-sm-2 col-form-label"><strong>작성자</strong></label>
+            <div class="col-sm-10">
+              <input type="text" name="writer" class="form-control" id="writer" value="{{blog.writer}}"/>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputContent" class="col-sm-2 col-form-label"><strong>내용</strong></label>
+            <div class="col-sm-10">
+              <textarea type="text" name="body" class="form-control" id="body">{{blog.body}}</textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-auto mr-auto"></div>
+            <div class="col-auto">
+              <input class="btn btn-primary" type="submit" role="button" value="제출" />
+            </div>
+          </div>
+    </form>
+</body>
+</html>
